@@ -1,0 +1,41 @@
+{
+  "npmScope": "library-test",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "projects": {
+    "coooool-library": {
+      "tags": []
+    },
+    "library-test": {
+      "tags": []
+    },
+    "library-test-e2e": {
+      "tags": [],
+      "implicitDependencies": ["library-test"]
+    }
+  }
+}
