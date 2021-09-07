@@ -1,6 +1,6 @@
 {
   "name": "library-test",
-  "version": "1.1.1",
+  "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
@@ -8,9 +8,14 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "bump-version:major": "npm version major --force  && cd libs/coooool-library && npm version major --force",
+    "copy-readme": "copy ./README.md ./dist/libs/core",
+    "copy-license": "copy ./LICENSE ./dist/libs/core",
+    "copy-changelog": "copy ./Changelog.md ./dist/libs/core",
+    "copy-files": "run-s copy-readme copy-license",
+    "bump-version:major": "npm version major --force && cd libs/coooool-library && npm version major --force",
     "bump-version:minor": "npm version minor --force && cd libs/coooool-library  && npm version minor --force",
-    "bump-version:patch": "npm version patch --force && cd libs/coooool-library  && npm version patch --force"
+    "bump-version:patch": "npm version patch --force && cd libs/coooool-library  && npm version patch --force",
+    "build:lib-pack": "ng build coooool-library && cd libs/coooool-library && npm pack"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +28,7 @@
     "@angular/platform-browser-dynamic": "^12.1.0",
     "@angular/router": "^12.1.0",
     "@nrwl/angular": "12.8.0",
+    "ng-packagr": "^12.2.1",
     "npm-run-all": "^4.1.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

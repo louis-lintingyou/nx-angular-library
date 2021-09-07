@@ -7,6 +7,18 @@
       "sourceRoot": "libs/coooool-library/src",
       "prefix": "library-test",
       "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "libs/coooool-library/tsconfig.lib.json",
+            "project": "libs/coooool-library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/coooool-library/tsconfig.lib.prod.json"
+            }
+          }
+        },
         "test": {
           "builder": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/coooool-library"],
